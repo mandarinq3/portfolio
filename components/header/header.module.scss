@@ -1,0 +1,81 @@
+@import '../../styles/colors';
+@import '../../styles/flex';
+
+
+.header{
+    background-color: $mint;
+    color: $light-mint;
+
+    .headerRow{
+        @include flex-Y-center;
+        justify-content: space-between;
+        padding: 20px 0px;
+        @media only screen and (max-width: 769px){
+            padding: 10px 0px;
+         } 
+
+        .headerCol{
+            display: block;
+
+            .headerLangList{
+                @include flex-X-center;
+
+                li{
+                    padding: 0px 10px 0px 0px;
+                    text-transform: uppercase;
+                    @media only screen and (max-width: 569px){
+                        padding: 0px 5px 0px 0px;
+                        font-size: 12px;
+                     }
+                     @media only screen and (max-width: 489px){
+                        font-size: 10px;
+                     }
+                }
+            }
+
+            .headerLogo{
+                font-size: 40px;
+                @media only screen and (max-width: 769px){
+                    font-size: 28px;
+                }
+                @media only screen and (max-width: 489px){
+                    font-size: 20px;
+                 }
+                
+            }
+
+            .headerNav{
+                @include flex-X-center;
+                @media only screen and (max-width: 489px){
+                    position: absolute;
+                    top: 42.5px;
+                    left: 0px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                 }
+
+                a{
+                    margin: 5px 0px 5px 40px;
+                    text-transform: uppercase;
+                    @media only screen and (max-width: 769px){
+                        margin: 5px 0px 5px 20px;
+                        font-size: 12px;
+                    }
+                    @media only screen and (max-width: 489px){
+                        color: $mint;
+                        margin: 5px 10px 5px 10px;
+                        font-size: 10px;
+                    }
+
+                    
+                }
+            }
+        }
+
+    }
+}
+
+.active{
+    text-decoration: underline;
+}
