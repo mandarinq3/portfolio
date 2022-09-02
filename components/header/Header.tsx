@@ -4,6 +4,12 @@ import { setLangs } from '../../slices/languageSlice';
 import { RootState } from '../../store/store';
 import classes from './header.module.scss';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faEnvelope,
+    faPhone
+} from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Header() {
 
@@ -153,7 +159,14 @@ useEffect(()=>{
                                 setShowContacts((prev)=>{
                                    return !prev
                                 })
-                            }}></small>
+                            }}>
+                                <FontAwesomeIcon
+                                    icon={faPhone}
+                                />
+                                <FontAwesomeIcon
+                                    icon={faEnvelope}
+                                />
+                            </small>
                             <ul 
                                 className={classes.contactsList}
                                 style={{

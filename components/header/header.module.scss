@@ -38,7 +38,7 @@
 
                 &:nth-child(3){
                     position: absolute;
-                    right: 100px;
+                    right: 150px;
 
                 } 
     
@@ -72,7 +72,7 @@
                  }
         
         
-                 @media only screen and (max-width: 495px){
+                 @media only screen and (max-width: 490px){
                     top: 49px;
                     margin-left: -150px;
                  }
@@ -144,52 +144,54 @@
 
             small{
                 display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                width: 100px;
                 height: 40px;
-                line-height: 0;
+
                 border: 1px solid white;
                 padding: 5px;
                 border-radius: 10px;
                 border-bottom-left-radius: 0px;
-                font-size: 35px;
+                font-size: 25px;
                 cursor:pointer;
 
                 @media only screen and (max-width: 489px){
                     height: 35px;
-                    font-size: 25px;
+                    font-size: 20px;
                  }  
 
-                    &::before{
-                        content: '✆';
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                    &::after{
-                        content: '\2709';
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-left: 5px; 
-                    }
                 
             }
 
             .contactsList{
-                position: absolute;
-                z-index: 10;
-                background-color: white;
                 display: flex;
                 flex-direction: column;
-                right: 67px;
+
+                position: absolute;
+                right: 100px;
+                z-index: 10;
+
+                background-color: white;
+                box-shadow: 0px 0px 5px white;
+                
                 margin: 0px 0px 0px 0px;
                 padding: 10px 20px;
+
                 border-radius: 30px;
                 border-top-right-radius: 0px;
-                box-shadow: 0px 0px 5px white;
+               
                 animation: fadeIn 0.1s linear;
+                
                 @media only screen and (max-width: 469px){
                     font-size: 12px;
-                    right: 54px;
+                    right: 100px;
+                    
+                }
+                @media only screen and (max-width: 330px){
+                    font-size: 12px;
+                    right: 35px;
                     
                 }
 

@@ -10,6 +10,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { setLangs } from '../slices/languageSlice';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
+
 
 export default function HomePage() {
 
@@ -18,10 +23,11 @@ export default function HomePage() {
 
   const [showToTopBtn, setShowToTopBtn] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
-  
-  
-  
 
+
+  const greetCollection = ['доброе утро','доброго дня','добрый вечер','доброй ночи'];
+  
+  const [time, setTime] = useState(new Date().getHours());
 
 useEffect(()=>{
   Aos.init({duration:500});
@@ -40,10 +46,8 @@ useEffect(()=>{
     : 'ua'
     ));
     setTimeout(()=>{
-
-        setShowLoader(true);
-      
-    },1700)
+        setShowLoader(true);  
+    },3500)
   
 },[])
 
@@ -75,12 +79,47 @@ return (
     onClick={()=>{
       scrollToTop();
     }}
-  >⬆</span>
+  >
+    <FontAwesomeIcon
+      icon={faArrowUp}
+    />
+  </span>
   </>
 : <div className='loader'>
-    <div> 
-      <i>Слава Україні!</i>   
-      <span></span>
+    <div>
+        <i>Слава Україні!</i>   
+        <span></span>
+        <h3>
+        
+        {  
+          time < 12 && time >= 4 ? greetCollection[0] : null
+        }
+
+        {  
+          time > 12 && time < 16 ? greetCollection[1] : null
+        }
+
+        {  
+          time > 16 && time < 22 ? greetCollection[2] : null
+        }
+
+        {  
+          time > 22  ? greetCollection[3] : null
+        }
+
+        {  
+          time < 4  ? greetCollection[3] : null
+        }
+        
+        </h3>
+
+
+
+
+ 
+
+  
+        
     </div>
 </div>
     
