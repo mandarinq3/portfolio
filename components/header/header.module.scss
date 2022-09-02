@@ -5,6 +5,13 @@
 .header{
     background-color: $mint;
     color: $light-mint;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+
+
 
     .headerRow{
         @include flex-Y-center;
@@ -14,68 +21,199 @@
             padding: 10px 0px;
          } 
 
+        @media only screen and (max-width: 489px){
+            justify-content: center;
+         } 
+         
+
         .headerCol{
             display: block;
+            position: relative;
+
+            @media only screen and (max-width: 669px){
+                &:nth-child(1){
+                    position: absolute;
+                    left: 30px;
+                }
+
+                &:nth-child(3){
+                    position: absolute;
+                    right: 100px;
+
+                } 
+    
+                &:nth-child(4){
+                    position: absolute;
+                    right: 30px;
+                }        
+             }
+
+             @media only screen and (max-width: 330px){
+                &:nth-child(1){
+                    position: absolute;
+                    left: 20px;
+                }
+    
+                &:nth-child(4){
+                    position: absolute;
+                    right: 20px;
+                }        
+             }
+
+             .headerNav{
+                @include flex-X-center;
+        
+                @media only screen and (max-width: 669px){
+                    color: $mint;
+                    width: 250px;
+                    position: absolute;
+                    top: 47px;
+                    left: 30px;
+                 }
+        
+        
+                 @media only screen and (max-width: 495px){
+                    top: 49px;
+                    margin-left: -150px;
+                 }
+        
+                
+        
+                span{
+                    margin: 5px 0px 5px 40px;
+                    cursor:pointer;
+                    min-width: 100px;
+        
+        
+                    @media only screen and (max-width: 769px){
+                        margin: 5px 0px 5px 20px;
+                        font-size: 12px;
+                        
+                    }
+                    @media only screen and (max-width: 489px){
+                        color: $mint;
+                        margin: 5px 10px 5px 10px;
+                        font-size: 10px;
+                        
+                    }
+        
+                    @media only screen and (max-width: 350px){
+                        min-width: 70px;
+                    }
+        
+                    
+                }
+            }
 
             .headerLangList{
                 @include flex-X-center;
 
+
                 li{
                     padding: 0px 10px 0px 0px;
-                    text-transform: uppercase;
+                    min-width: 40px;
+                    cursor:pointer;
+                    
                     @media only screen and (max-width: 569px){
                         padding: 0px 5px 0px 0px;
                         font-size: 12px;
                      }
                      @media only screen and (max-width: 489px){
+                        padding: 0px 10px 0px 10px;
                         font-size: 10px;
+                        
+                
+                        
                      }
                 }
             }
 
             .headerLogo{
                 font-size: 40px;
+
                 @media only screen and (max-width: 769px){
                     font-size: 28px;
                 }
                 @media only screen and (max-width: 489px){
                     font-size: 20px;
+                    
                  }
                 
             }
 
-            .headerNav{
-                @include flex-X-center;
+
+            small{
+                display: flex;
+                height: 40px;
+                line-height: 0;
+                border: 1px solid white;
+                padding: 5px;
+                border-radius: 10px;
+                border-bottom-left-radius: 0px;
+                font-size: 35px;
+                cursor:pointer;
+
                 @media only screen and (max-width: 489px){
-                    position: absolute;
-                    top: 42.5px;
-                    left: 0px;
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                 }
+                    height: 35px;
+                    font-size: 25px;
+                 }  
 
-                a{
-                    margin: 5px 0px 5px 40px;
-                    text-transform: uppercase;
-                    @media only screen and (max-width: 769px){
-                        margin: 5px 0px 5px 20px;
-                        font-size: 12px;
+                    &::before{
+                        content: '✆';
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
-                    @media only screen and (max-width: 489px){
-                        color: $mint;
-                        margin: 5px 10px 5px 10px;
-                        font-size: 10px;
+                    &::after{
+                        content: '\2709';
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: 5px; 
                     }
+                
+            }
 
+            .contactsList{
+                position: absolute;
+                z-index: 10;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                right: 67px;
+                margin: 0px 0px 0px 0px;
+                padding: 10px 20px;
+                border-radius: 30px;
+                border-top-right-radius: 0px;
+                box-shadow: 0px 0px 5px white;
+                animation: fadeIn 0.1s linear;
+                @media only screen and (max-width: 469px){
+                    font-size: 12px;
+                    right: 54px;
                     
+                }
+
+                li{     
+                    margin: 5px 0px;
+                    a{
+                        color: $mint;
+                        line-height: 25px;
+                        text-transform: lowercase;
+                    }
+                }
+            }
+
+            @keyframes fadeIn {
+                0%{
+                    top: 80px;
+                    opacity: 0.3;
+                }
+                100%{
+                    top: 10px;
+                    opacity: 1;
                 }
             }
         }
 
     }
-}
-
-.active{
-    text-decoration: underline;
 }

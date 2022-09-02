@@ -20,6 +20,10 @@ body{
         width: 100vw;
         padding: 0px 20px;
      }
+     @media only screen and (max-width: 330px){
+        width: 90vw;
+        padding: 0px 20px;
+     }
 }
 
 a{
@@ -49,3 +53,144 @@ button{
         font-size: 18px;
     }
 }
+
+.toTopBtn{
+    @include flex-XY-center;
+    box-shadow:  inset 0px 0px 90px $mint;
+    color: white;
+    line-height: 0;
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px dashed white;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    animation: jump 1s ease infinite;
+
+    @media only screen and (max-width: 429px){
+        right: 20px;
+    }
+}
+
+@keyframes jump {
+    0%{
+        bottom: 100px;
+    }
+    50%{
+        bottom: 105px;
+    }
+    100%{
+        bottom: 100px;
+    }
+    
+}
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    @include flex-XY-center;
+    background:url('../public/assets/loadHolder.jpg');
+    background-size: cover;
+    div{
+    width: 300px;
+    height: 19px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px white, 0px 0px 15px white, 0px 0px 25px white;
+    background-color: white;
+    position: relative;
+
+    i{
+        color: white;
+        position: absolute;
+        line-height: 0;
+        top: 9px;
+        left: 95px;
+
+    }
+
+    span{
+        position: absolute;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        top: -120px;
+        left: 95px;
+        animation: circle 1s  ease-out infinite;
+        
+
+        &::before{
+            content: '';
+            position: absolute;
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: white;
+            top: 80px;
+            left: 80px;
+            box-shadow: 0px 0px 5px white, 0px 0px 10px white, 0px 0px 30px $mint;
+            
+        }
+    }
+
+    &::before{
+        content: '';
+        display: block;
+        background: linear-gradient(to right, $light-mint, $mint);  
+        height: 100%;  
+        border-radius: 10px;
+        animation: loader 1.6s  ease-in infinite; 
+    }
+    &::after{
+        content: '☺';
+        @include flex-XY-center;
+        width: 100px;
+        height: 100px;
+        color: white;
+        position: absolute;
+        top: -120px;
+        left: 140px;
+        font-size: 100px;
+        margin-left: -45px;
+        text-shadow: 0px 0px 30px white, 0px 0px 5px white, 0px 0px 1px white;
+        animation: blink 1s  ease-in infinite;
+    }
+    }
+}
+
+@keyframes loader {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%{
+
+        transform: rotate(-30deg);
+    }
+    50%{
+
+        transform: rotate(50deg);
+
+    }
+    100%{
+
+        transform: rotate(-30deg);   
+    }
+}
+
+@keyframes circle {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+  

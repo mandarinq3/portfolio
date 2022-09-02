@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
-import internal from 'stream';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 import classes from './present.module.scss';
-// import Aos from 'aos';
-// import 'aos/dist/aos.css';
-
-
 
 export default function Present(){
 
+    const appState = useSelector((state:RootState)=>state);
+    const [lang, setLang] = useState(appState.langs.currentLang===''
+    ? 'ua'
+    : appState.langs.currentLang);    
+    const _getKeyValue_ = (key: string) => (obj: Record<string, any>) => obj[key];
+    const vals = _getKeyValue_(lang);
+    const blocks = vals(appState.langs.langs);
+
+    
+    useEffect(()=>{
+        setLang(appState.langs.currentLang)
+    },[appState.langs.currentLang])
 
     interface ILangs{
         id:string;
@@ -150,8 +159,19 @@ const stacks:IStack[] = [
                             </div>
                         </div>
                         <div className={classes.bottom}>
-                            Junior Frontend Developer
+                            {
+                                blocks.presentation.position
+                            }
                         </div>
+                        <ol> 
+                        {
+                            blocks.presentation.about.map((item:any)=>{   
+                                return <li
+                                key={item}
+                                >{item}</li>
+                            })
+                        }                  
+                        </ol>
                     </div>
                     <div className={classes.presentColRight}>
                         <ul className={classes.iconList}>

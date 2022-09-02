@@ -7,20 +7,32 @@
     background: url('../../public/assets/present-bg.jpeg');
     background-size: cover;
     margin: 20px 0px;
+    min-height: 80vh;
 }
 
 .presentRow {
     display: flex;
     padding: 10px 0px;
     align-items: center;
-    @media only screen and (max-width: 569px){
+
+    @media only screen and (max-width: 769px){
         flex-direction: column;
      }
 }
+
 .presentColLeft {
     flex: 1 0 35%;
+
     @media only screen and (max-width: 569px){
         width: 300px;
+
+     }
+
+     @media only screen and (max-width: 330px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
      }
 
     .top {
@@ -29,9 +41,22 @@
         box-shadow:  inset 0px 0px 1000px $mint;
         border: 1px solid $mint;
         border-radius: 10px;
+        // ============================================
+        @media only screen and (max-width: 769px){
+            display: flex;
+            flex-direction: column;
+
+         }
+
+         @media only screen and (max-width: 330px){
+            width: 260px;
+         }
+
+
         .topLeft {
             @include flex-XY-center;
             margin-right: 15px;
+           
             .imgHolder {    
                 width: 150px;
                 height: 150px;
@@ -49,20 +74,32 @@
 
         .topRight {
             .presentLangList {
+                @media only screen and (max-width: 769px){
+                    display: flex;
+                 }
                 li{
                     @include flex-XY-center;
                     flex-direction: column;
                     position: relative;
                     bottom: -10px;
+                    
 
                     &:first-child{  
                         left: -25px;
                         bottom: 0px;
+                        @media only screen and (max-width: 769px){
+                            left: -35px;
+                            bottom: 0px;
+                         }
 
                     }
                     &:last-child{
                         left: -25px;
                         bottom: -20px;
+                        @media only screen and (max-width: 769px){
+                            left: 35px;
+                            bottom: 0px;
+                         }
                     }
                     .flagHolder {
                         background-color: $mint;
@@ -105,12 +142,33 @@
             padding: 5px;
             margin: 5px;
             text-align: center;
-            @media only screen and (max-width: 769px){
-                font-size: 14px;
-             } 
-             @media only screen and (max-width: 569px){
-                font-size: 12px;
-             }
+            // ============================================
+            @media only screen and (max-width: 330px){
+                width: 250px;
+            }
+            
+
+    }
+    ol{
+        padding: 10px;
+        color: white;
+        box-shadow: inset 0px 0px 100px $mint;
+        border: 1px dashed $light-mint;
+        border-radius: 10px;
+        margin: 10px;
+        min-height: 150px;
+        @media only screen and (max-width: 769px){
+            font-size: 12px;
+         } 
+
+         @media only screen and (max-width: 330px){
+            width: 260px;
+         }
+        li{
+            margin: 5px 0px;
+            list-style: circle;
+            list-style-position: inside;
+        }
     }
 }
 

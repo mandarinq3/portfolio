@@ -1,0 +1,150 @@
+@import '../../styles/colors';
+
+.details {
+    color: $mint;  
+    margin-bottom: 20px;  
+}
+.detailsHeader {
+    background-color: $mint;
+    padding: 20px 0px;
+    min-height: 10vh;
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a{
+            margin: 0px 0px 0px 20px ;
+            padding: 10px 15px;
+            text-transform: uppercase;
+        }   
+    }
+}
+
+.detailsBody {
+    min-height: 80vh;
+    .detailsBodyRowTop{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0px 20px 0px;
+            padding: 0px 10px;
+            text-transform: uppercase;
+            @media only screen and (max-width: 669px){
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            
+            .usedStackList{
+                display: flex;
+                align-items: center;
+                background-color: $mint;
+                border-radius: 10px;
+                padding: 15px;
+                margin: 10px 0px;
+                @media only screen and (max-width: 349px){
+                    flex-wrap: wrap;
+                    padding: 10px;
+                }
+                
+                li{
+                    background-color: $light-mint;
+                    position: relative;
+                    background-position: center;
+                    background-size: cover;
+                    margin: 0px 0px 0px 10px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    animation: jump 1s ease-in infinite;
+                    box-shadow: 0px 0px 10px white;
+                    @media only screen and (max-width: 349px){
+                        margin: 0px 0px 0px 10px;
+                        width: 25px;
+                        height: 25px;
+                    }
+                    &:hover{
+                        top: -5px;
+                    }
+                    &:nth-child(1){
+                        animation-delay: 0.1s;
+                    }
+                    &:nth-child(2){
+                        animation-delay: 0.2s;
+                    }
+                    &:nth-child(3){
+                        animation-delay: 0.3s;
+                    }
+                    &:nth-child(4){
+                        animation-delay: 0.4s;
+                    }
+                    &:nth-child(5){
+                        animation-delay: 0.5s;
+                    }
+                    &:nth-child(6){
+                        animation-delay: 0.6s;
+                    }
+                    &:nth-child(7){
+                        animation-delay: 0.7s;
+                    }
+                    &:nth-child(8){
+                        animation-delay: 0.8s;
+                    }
+                    &:nth-child(9){
+                        animation-delay: 0.9s;
+                    }
+                    &:nth-child(10){
+                        animation-delay: 1s;
+                    }
+
+                }
+            } 
+        }
+
+    @keyframes jump {
+        0%{
+            transform: scale(1);
+        }
+        100%{
+            transform: scale(0.9);
+        }
+    }
+
+    
+    .detailsBodyRowBottom{
+        p{
+            border: 1px dashed $mint;
+            border-bottom: none;
+            padding: 20px;
+            text-align: justify;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-family:Arial, Helvetica, sans-serif;
+            font-style: italic;
+            word-spacing: 5px;
+            letter-spacing: 2px;
+            @media only screen and (max-width: 429px){
+                word-spacing: 2.5px;
+                letter-spacing: 0.5px;
+                font-size: 14px;
+            }
+        }
+        span{
+            display: flex;
+            justify-content: center;
+            padding: 10px 0px;
+            background-color: $mint;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+            a{
+                text-transform: uppercase;
+                text-decoration: underline;
+                margin: 0px 0px 0px 20px;
+                padding: 10px 15px;
+                border-radius: 10px;
+                cursor: alias;
+            }
+        }
+    }
+}  

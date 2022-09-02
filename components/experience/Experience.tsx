@@ -1,36 +1,49 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 import classes from './experience.module.scss';
 
 export default function Experience(){
+
+    const appState = useSelector((state:RootState)=>state);
+    const [lang,setLang] = useState(appState.langs.currentLang===''
+    ? 'ua'
+    : appState.langs.currentLang);
+    const _getKeyValue_ = (key: string) => (obj: Record<string, any>) => obj[key];
+    const vals = _getKeyValue_(lang);
+    const blocks = vals(appState.langs.langs);
+
+    useEffect(()=>{
+        setLang(appState.langs.currentLang)
+    },[appState.langs.currentLang])
+
+    
+    
+
+
+
     return (
         <div 
             className={classes.experience} 
             id='experienceBlock'
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-anchor-placement="top-bottom"
-            data-aos-once={true}
             >
-            <h2 className="title">work experience</h2>
+            <h2 className="title">
+                {blocks.experience.title}
+            </h2>
             <div className="container">
             
                 <ul 
                 className={classes.experienceList}
                 >
-                    <li key={'a'}>
-                        <span>Freelance</span>
-                        <small>English tutor</small>
-                        <small>2017-2018</small>
-                    </li>
-                    <li key={'b'}>
-                        <span>KidIT/ IT-school for kids</span>
-                        <small>teacher</small>
-                        <small>2018-2019</small>                      
-                    </li>
-                    <li key={'c'}>
-                        <span>IT Family HUB/ IT-school for kids</span>
-                        <small>teacher</small>
-                        <small>2019-2021</small>
-                        
-                    </li>
+                    {blocks.experience.place.map((item:any)=>{
+                        return <li key={item.name}>
+                                    <span>{item.name}</span>
+                                    <small>{item.position}</small>
+                                    <small>{item.period}</small>
+                                </li>
+                    })}
                 </ul>
             </div>
         </div>
