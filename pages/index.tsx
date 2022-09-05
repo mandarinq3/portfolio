@@ -25,7 +25,7 @@ export default function HomePage() {
   const [showLoader, setShowLoader] = useState(false);
 
 
-  const greetCollection = ['доброе утро','доброго дня','добрый вечер','доброй ночи'];
+  const greetCollection = ['Доброго ранку!','Доброго дня!','Доброго вечора!','Вітаю!'];
   
   const [time, setTime] = useState(new Date().getHours());
 
@@ -96,15 +96,15 @@ return (
         }
 
         {  
-          time > 12 && time < 16 ? greetCollection[1] : null
+          time >= 12 && time < 16 ? greetCollection[1] : null
         }
 
         {  
-          time > 16 && time < 22 ? greetCollection[2] : null
+          time >= 16 && time < 22 ? greetCollection[2] : null
         }
 
         {  
-          time > 22  ? greetCollection[3] : null
+          time >= 22  ? greetCollection[3] : null
         }
 
         {  
@@ -112,13 +112,6 @@ return (
         }
         
         </h3>
-
-
-
-
- 
-
-  
         
     </div>
 </div>

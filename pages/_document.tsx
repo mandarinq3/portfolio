@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
         return(
             <Html>
                 <Head>
-                
+                <title>web cv</title>
                 </Head>
                 <body>
                     <Main></Main>
